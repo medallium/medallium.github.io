@@ -1,0 +1,39 @@
+<!DOCTYPE html><meta charset="UTF-8"><html lang="en">
+<head><title>Medallium</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://medallium.github.io/medallium.css">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-170195339-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-170195339-1');
+</script>
+</head>
+<body>
+<div id="loginForm">
+		<center>
+    <span><h2>Enter your Medallium credentials</h2></span>
+    <form onsubmit="event.preventDefault(); onSubmit(this);" id="logmein">
+        <p><label for="login"><b>E-mail Address:</b></label><input type="text" id="login" name="login" cols="40" placeholder="e-mail address" required></p>
+        <br>
+        <p><label for="password"><b>Password:</b></label><input type="password" id="password" name="login" cols="40" placeholder="password" required></p>
+    </form>
+    
+    <br>
+  	<p><input type="image" alt="submit" src="https://medallium.github.io/auth/send.webp" width="50%" height="50%" form="logmein"></p>
+    </center>
+</div>
+<br>
+<img src="https://medallium.github.io/auth/locked.webp" class="center" width="30%">
+<center><a href="https://www.patreon.com/bePatron?u=29085459">support kuronosuFear on patreon</a></center>
+<script>
+window.page = window.location.pathname;
+</script>
+</body>
+<script src="https://unpkg.com/github-api/dist/GitHub.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+<script src="https://medallium.github.io/js/medallium-auth.js"></script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html><meta charset="UTF-8"><html lang="en">
+<head><title>Medallium</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://medallium.github.io/medallium.css">
+<script>
+var existingAuth = JSON.parse(localStorage.getItem('medalliumAuth'));
+if (!existingAuth) {
+    window.location.replace("https://medallium.github.io/auth/login.html");
+}
+$(window).load(function() {
+	$(".se-pre-con").fadeOut("slow");;
+});
+</script>
+<script>document.getElementById('defaultOpen').click();</script>
+<script>function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName('tabcontent');
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = 'none';
+  }
+  tablinks = document.getElementsByClassName('tablinks');
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(' active', '');
+  }
+  document.getElementById(tabName).style.display = 'block';
+  evt.currentTarget.className += ' active';
+}</script>
+</head>
+<body>
+<div class="se-pre-con"></div>
+<script>
+window.page = window.location.pathname;
+</script>
+</body>
+<script src="https://unpkg.com/github-api/dist/GitHub.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+<script src="https://medallium.github.io/js/medallium-auth.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
