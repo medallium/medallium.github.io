@@ -147,11 +147,11 @@ table {
 	border-radius: 6px;
 	-moz-border-radius: 6px;
 	background-color: #8F8F8F;
-	/*-moz-user-select: none;
+	-moz-user-select: none;
 	-ms-user-select: none;
 	-khtml-user-select: none;
 	-webkit-user-select: none;
-	-webkit-touch-callout: none;*/
+	-webkit-touch-callout: none;
 	-webkit-text-size-adjust: 100%;
 }
 
@@ -170,11 +170,11 @@ td {
 	border-radius: 6px;
 	-moz-border-radius: 6px;
 	background-color: #2C2C2C;
-	/*-moz-user-select: none;
+	-moz-user-select: none;
 	-ms-user-select: none;
 	-khtml-user-select: none;
 	-webkit-user-select: none;
-	-webkit-touch-callout: none;*/
+	-webkit-touch-callout: none;
 	-webkit-text-size-adjust: 100%;
 }
 
