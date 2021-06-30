@@ -1,0 +1,28 @@
+<!DOCTYPE html><meta charset="UTF-8"><html lang="en">
+<head><title>Medallium</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://medallium.github.io/medallium.css">
+<script>
+var existingAuth = JSON.parse(localStorage.getItem('medalliumAuth'));
+if (!existingAuth) {
+    window.location.replace("https://medallium.github.io/auth/login.html");
+}
+$(window).load(function() {
+	$(".se-pre-con").fadeOut("slow");;
+});
+</script>
+</head>
+<body>
+<div class="se-pre-con"></div>
+<script>
+window.page = window.location.pathname;
+</script>
+</body>
+<script src="https://unpkg.com/github-api/dist/GitHub.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+<script src="https://medallium.github.io/js/medallium-auth.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+<script src="https://rawgit.com/nodeca/pako/master/dist/pako.js"></script>
+<script src="https://medallium.github.io/music/music.js"></script>
