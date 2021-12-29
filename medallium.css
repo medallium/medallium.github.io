@@ -216,6 +216,19 @@ img {
     display: table;
 }
 
+.skillcontainer {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.skillcentered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 form  { display: table;      }
 p     { display: table-row;  }
 label { display: table-cell; }
