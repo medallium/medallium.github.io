@@ -231,6 +231,7 @@ img {
   color: #232323;
   text-shadow: #ffdd5e 1px 1px 0px;
   font-size: 20px;
+  font-weight: bold;
 }
 
 form  { display: table;      }
