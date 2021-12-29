@@ -227,6 +227,9 @@ img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  color: #232323;
+  text-shadow: #ffdd5e 1px 1px 0px;
+  font-size: 15px;
 }
 
 form  { display: table;      }
