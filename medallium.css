@@ -230,8 +230,8 @@ img {
   display:inline-block;
   text-decoration: none;
   color: #232323;
-  text-shadow: #fff8e3 3px 3px 0px;
-  font-size: 20px;
+  text-shadow: #fff8e3 1px 1px 0px;
+  font-size: 25px;
   font-weight: bolder;
 }
 
