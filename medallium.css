@@ -232,7 +232,12 @@ img {
   color: #232323;
   text-shadow: #ffdd5e 1px 1px 0px;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: bolder;
+}
+
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
 }
 
 form  { display: table;      }
