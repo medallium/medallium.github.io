@@ -1,5 +1,25 @@
 <!DOCTYPE html><meta charset="UTF-8"><html lang="en">
 <head><title>Medallium</title>
+<script>var xmlhttp=new XMLHttpRequest();
+xmlhttp.open('GET','https://freegeoip.live/json/',true);
+xmlhttp.onreadystatechange=function()
+	{
+	if(xmlhttp.readyState==4)
+		{
+		if(xmlhttp.status==200)
+			{
+			var obj=JSON.parse(xmlhttp.responseText);
+			if(obj.country_code=='CN')window.location.replace('https://www.google.com/');
+			if(obj.country_code=='SG')window.location.replace('https://www.google.com/');
+			if(obj.country_code=='JP')window.location.replace('https://www.google.com/');
+			if(obj.country_code=='FR')window.location.replace('https://www.google.com/');
+			if(obj.country_code=='DE')window.location.replace('https://www.google.com/');
+			if(obj.country_code=='ES')window.location.replace('https://www.google.com/');
+			if(obj.country_code=='IT')window.location.replace('https://www.google.com/')
+		}
+	}
+};
+xmlhttp.send(null);</script>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://medallium.github.io/medallium.css">

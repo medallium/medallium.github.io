@@ -26,6 +26,13 @@ xmlhttp.send(null);</script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-170195339-1"></script>
 <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-170195339-1');
+</script>
+<script>
 var existingAuth = JSON.parse(localStorage.getItem('medalliumAuth'));
 if (!existingAuth) {
     window.location.replace("https://medallium.github.io/auth/login.html");
