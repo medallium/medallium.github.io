@@ -4,7 +4,7 @@
 		<title>three.js webgl - FBX loader</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<link type="text/css" rel="stylesheet" href="medallium.css">
+		<link type="text/css" rel="stylesheet" href="../medallium.css">
 	</head>
 
 	<body>
@@ -79,7 +79,7 @@
 				// model
 				const loader = new FBXLoader();
 				loader.load( 'YWW/y5006650 (merge).fbx', function ( object ) {
-					object = object.matrix.scale(50);
+					object.scale.set(50, 50, 50);
 					mixer = new THREE.AnimationMixer( object );
 
 					const action = mixer.clipAction( object.animations[ 0 ] );
