@@ -88,7 +88,7 @@
 				// model
 				const loader = new FBXLoader();
 				loader.load( 'YWW/y5006650 (merge).fbx', function ( object ) {
-					object.scale.set(10000, 10000, 10000);
+					object.scale.set(5000, 5000, 5000);
 					mixer = new THREE.AnimationMixer( object );
 
 					const action = mixer.clipAction( object.animations[ 0 ] );
