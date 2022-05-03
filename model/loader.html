@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>three.js webgl - FBX loader</title>
+		<title>Puni Model Viewer</title>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-170195339-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-170195339-1');
+</script>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<link type="text/css" rel="stylesheet" href="../medallium.css">
@@ -79,7 +88,7 @@
 				// model
 				const loader = new FBXLoader();
 				loader.load( 'YWW/y5006650 (merge).fbx', function ( object ) {
-					object.scale.set(50, 50, 50);
+					object.scale.set(10000, 10000, 10000);
 					mixer = new THREE.AnimationMixer( object );
 
 					const action = mixer.clipAction( object.animations[ 0 ] );
