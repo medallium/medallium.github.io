@@ -48,7 +48,7 @@
 
 				scene = new THREE.Scene();
 				scene.background = new THREE.Color( 0xa0a0a0 );
-				scene.fog = new THREE.Fog( 0x000000, 0, 0 );
+				scene.fog = new THREE.Fog( 0xa0a0a0, 200, 1000 );
 
 				const hemiLight = new THREE.HemisphereLight( 0xffffff, 0x444444 );
 				hemiLight.position.set( 0, 200, 0 );
@@ -79,8 +79,7 @@
 				// model
 				const loader = new FBXLoader();
 				loader.load( 'YWW/y5006650 (merge).fbx', function ( object ) {
-					object.matrix.scale(100);
-
+					object = object.matrix.scale(50);
 					mixer = new THREE.AnimationMixer( object );
 
 					const action = mixer.clipAction( object.animations[ 0 ] );
