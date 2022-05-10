@@ -89,7 +89,7 @@
 				// model
 				const loader = new FBXLoader();
 				loader.load( 'YWW/Test.fbx', function ( object ) {
-					object.scale.set(100, 100, 100);
+					object.scale.set(1, 1, 1);
 					mixer = new THREE.AnimationMixer( object );
 
 					const action = mixer.clipAction( object.animations[ 0 ] );
