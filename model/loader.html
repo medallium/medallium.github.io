@@ -107,6 +107,7 @@
 					} );
 
 					scene.add( object );
+					scene.traverse(i => {if (i.isMesh) i.material.shininess = 0})
 
 				} );
 
