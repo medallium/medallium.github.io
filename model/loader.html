@@ -108,6 +108,12 @@
 
 					scene.add( object );
 					scene.traverse(i => {if (i.isMesh) i.material.shininess = 0})
+	
+					var outlineMaterial = new THREE.MeshBasicMaterial( { color: 0xffffff, side: THREE.BackSide } );
+					var outlineMesh = new THREE.Mesh( object, outlineMaterial );
+					outlineMesh.position = object.position;
+					outlineMesh.scale.multiplyScalar(1.05);
+					scene.add( outlineMesh );
 
 				} );
 
