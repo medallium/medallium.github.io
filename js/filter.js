@@ -1,18 +1,18 @@
 function filterSoultimate(soultimateFilter) {
 	if (soultimateFilter=='default'){
-  $('*[id="soultimate]').show();
+  $('div[id^="soultimate]').show();
 	}
 	else{
-  $('*[id="soultimate]').hide();
-  $('*[id="]*'+soultimateFilter).show();
+  $('div[id^="soultimate]').hide();
+  $('div[id*="'+soultimateFilter+'"]').show();
 	}
 }
 function filterSkill(skillFilter) {
 	if (skillFilter=='default'){
-  $('*[id="skill]').show();
+  $('div[id^="skill"]').show();
 	}
 	else{
-  $('*[id="skill]').hide();
-  $('*[id="]*'+skillFilter).show();
+  $('div[id^="skill"]').hide();
+  $('div[id*="'+skillFilter+'"]').show();
 	}
 }
