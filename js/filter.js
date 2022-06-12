@@ -1,9 +1,9 @@
 function filterSoultimate(soultimateFilter) {
 	if (soultimateFilter=='default'){
-  $('div[id^="soultimate]').show();
+  $('div[id^="soultimate"]').show();
 	}
 	else{
-  $('div[id^="soultimate]').hide();
+  $('div[id^="soultimate"]').hide();
   $('div[id*="'+soultimateFilter+'"]').show();
 	}
 }
