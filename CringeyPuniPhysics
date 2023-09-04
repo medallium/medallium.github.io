@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connected Circles with Image Overlay</title>
+    <style>
+        #container {
+            position: relative;
+        }
+        #image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Make sure the overlay doesn't block mouse events */
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.17.1/matter.min.js"></script>
+  </head>
+  <body>
+    <div id="container"></div>
+    <!-- Add the image overlay div -->
+    <div id="image-overlay">
+        <img src="https://static.wikia.nocookie.net/yokai-watch-puni-puni/images/e/e5/Bl_1511000.png" alt="Image Overlay">
+    </div>
+    <script>
+      const {
+        Engine,
+        Render,
+        World,
+        Bodies,
+        Constraint,
+        Mouse,
+        MouseConstraint,
+        Composite,
+        Events
+      } = Matter;
+
+      const engine = Engine.create();
+
+      const render = Render.create({
+        element: document.getElementById("container"),
+        engine: engine,
+        options: {
+          width: window.innerWidth,
+          height: window.innerHeight,
+        },
+      });
+
+      const numParticles = 8; // Number of circles surrounding the central circle
+      const radius = 78; // Radius of the larger circle
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+      const angleStep = (Math.PI * 2) / numParticles; // Angle between circles
+      const particles = [];
+
+      for (let i = 0; i < numParticles; i++) {
+        const angle = i * angleStep;
+        const x = centerX + radius * Math.cos(angle);
+        const y = centerY + radius * Math.sin(angle);
+        const particle = Bodies.circle(x, y, 20, {
+          friction: 0.005,
+          density: 0.01,
+          restitution: 0.5,
+        });
+        particles.push(particle);
+      }
+
+      // Create the central circle
+      const centralCircle = Bodies.circle(centerX, centerY, 50, {
+        friction: 0.005,
+        density: 0.01,
+        restitution: 0.5,
+      });
+
+      const constraints = [];
+
+      for (let i = 0; i < numParticles; i++) {
+        const nextIndex = (i + 1) % numParticles;
+        const constraintToNext = Constraint.create({
+          bodyA: particles[i],
+          bodyB: particles[nextIndex],
+          stiffness: 1.0,
+        });
+        constraints.push(constraintToNext);
+
+        // Connect each particle to the central circle
+        const constraintToCentral = Constraint.create({
+          bodyA: particles[i],
+          bodyB: centralCircle,
+          stiffness: 0.02,
+          damping: 0.2, // Add damping for tension
+        });
+        constraints.push(constraintToCentral);
+      }
+
+      const wallOptions = {
+        friction: 0.3,
+        restitution: 0.9, // Increase restitution for more bounce
+        density: 10, // Increase density to make walls impenetrable
+        isStatic: true, // Walls should not move
+      };
+
+      const walls = [
+        Bodies.rectangle(
+          window.innerWidth / 2,
+          0,
+          window.innerWidth,
+          40,
+          wallOptions
+        ), // Top wall
+        Bodies.rectangle(
+          window.innerWidth / 2,
+          window.innerHeight,
+          window.innerWidth,
+          40,
+          wallOptions
+        ), // Bottom wall
+        Bodies.rectangle(
+          0,
+          window.innerHeight / 2,
+          40,
+          window.innerHeight,
+          wallOptions
+        ), // Left wall
+        Bodies.rectangle(
+          window.innerWidth,
+          window.innerHeight / 2,
+          40,
+          window.innerHeight,
+          wallOptions
+        ), // Right wall
+      ];
+
+      // Mouse interaction
+      const mouse = Mouse.create(render.canvas);
+      const mouseConstraint = MouseConstraint.create(engine, {
+        mouse: mouse,
+        constraint: {
+          stiffness: 0.2,
+          render: {
+            visible: false,
+          },
+        },
+      });
+
+      // Make the central circle draggable
+      Matter.Events.on(mouseConstraint, 'mousedown', (event) => {
+        if (Matter.Bounds.contains(centralCircle.bounds, event.mouse.position)) {
+          centralCircle.isStatic = false;
+        }
+      });
+
+      // Create a composite to group all connected particles
+      const connectedParticles = Composite.create();
+      Composite.add(connectedParticles, [...particles, centralCircle, ...constraints]);
+      World.add(engine.world, [connectedParticles, ...walls, mouseConstraint]);
+
+      // Enable mouse control
+      render.mouse = mouse;
+
+      Engine.run(engine);
+      Render.run(render);
+
+      const imageOverlay = document.getElementById("image-overlay");
+
+      function updateImagePosition() {
+        // Calculate the average position of connectedParticles
+        const avgX = Composite.allBodies(connectedParticles).reduce((sum, particle) => sum + particle.position.x, 0) / Composite.allBodies(connectedParticles).length;
+        const avgY = Composite.allBodies(connectedParticles).reduce((sum, particle) => sum + particle.position.y, 0) / Composite.allBodies(connectedParticles).length;
+
+        // Set the image overlay position to match the average position
+        imageOverlay.style.left = avgX-95+ "px";
+        imageOverlay.style.top = avgY-78 + "px";
+      }
+
+      // Update image position on every render frame
+      Events.on(engine, 'beforeUpdate', () => {
+        updateImagePosition();
+      });
+
+    </script>
+  </body>
+</html>
