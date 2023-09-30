@@ -88,7 +88,7 @@ $a.Screen = (function(){
             totalBallCount: $a.player.totalBallCount//,
         }, options || {});
 
-        var t = $f.format('Max combos: {0}\nTotal combos: {1}\nTotal balls: {2}',
+        var t = $f.format('Max combos: {0}\nTotal combos: {1}\nTotal puni erased: {2}',
             opts.maxComboCount, opts.totalComboCount, opts.totalBallCount);
         this._dummyScoreboard.html($f.nl2br(t));
     }
